@@ -1,4 +1,4 @@
-name: Deploy Submodules to GitHub Pages
+name: Deploy to GitHub Pages
 
 on:
   push:
@@ -6,26 +6,25 @@ on:
       - main
 
 jobs:
-  deploy:
+  build-and-deploy:
     runs-on: ubuntu-latest
-
+    
     steps:
-      - name: Checkout repository with submodules
+      - name: Checkout code with submodules
         uses: actions/checkout@v3
         with:
           submodules: 'recursive'
-          fetch-depth: 0
+          token: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Copy submodule contents
+      - name: Verify submodules loaded
         run: |
-          # This script copies submodule contents to the root so GitHub Pages serves them
-          if [ -d "tennisim" ]; then
-            echo "Submodule 'tennisim' found, ready for deployment"
-          fi
-
-      - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./
-          allow_empty_commit: true
+          echo "Checking for tennisim directory..."
+          ls -la tennisim/ || echo "tennisim directory not found"
+          
+      - name: Push changes to main branch
+        run: |
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+          git add -A
+          git commit -m "Deploy: Update submodule content" || echo "No changes to commit"
+          git push origin main || echo "Nothing to push"
