@@ -1,0 +1,31 @@
+name: Deploy Submodules to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository with submodules
+        uses: actions/checkout@v3
+        with:
+          submodules: 'recursive'
+          fetch-depth: 0
+
+      - name: Copy submodule contents
+        run: |
+          # This script copies submodule contents to the root so GitHub Pages serves them
+          if [ -d "tennisim" ]; then
+            echo "Submodule 'tennisim' found, ready for deployment"
+          fi
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./
+          allow_empty_commit: true

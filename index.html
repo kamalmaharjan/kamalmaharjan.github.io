@@ -1,5 +1,175 @@
-<!doctype html>
-<meta charset="utf-8" />
-<meta http-equiv="refresh" content="0; url=./tennisim/index.html" />
-<title>Redirecting…</title>
-<a href="./tennisim/index.html">Go to TenniSim</a>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kamal Maharjan - Projects</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        header {
+            text-align: center;
+            color: white;
+            margin-bottom: 50px;
+            animation: fadeIn 0.8s ease-in;
+        }
+        
+        header h1 {
+            font-size: 3em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        
+        header p {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+        
+        .projects {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+        
+        .project-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            animation: slideUp 0.6s ease-out;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+        }
+        
+        .project-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+        }
+        
+        .project-header h2 {
+            font-size: 1.8em;
+            margin-bottom: 5px;
+        }
+        
+        .project-header p {
+            font-size: 0.9em;
+            opacity: 0.9;
+        }
+        
+        .project-body {
+            padding: 20px;
+        }
+        
+        .project-body p {
+            margin-bottom: 15px;
+            color: #666;
+        }
+        
+        .project-link {
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: opacity 0.3s ease;
+            font-weight: bold;
+        }
+        
+        .project-link:hover {
+            opacity: 0.8;
+        }
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        footer {
+            text-align: center;
+            color: white;
+            margin-top: 50px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.3);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Kamal Maharjan</h1>
+            <p>Software Developer & Project Showcase</p>
+        </header>
+        
+        <div class="projects">
+            <div class="project-card">
+                <div class="project-header">
+                    <h2>TenniSim</h2>
+                    <p>Tennis Serving Simulator</p>
+                </div>
+                <div class="project-body">
+                    <p>A tennis serving simulator for personal development and improvement based on physical models. Run simulations and optimize your serving technique.</p>
+                    <a href="./tennisim/" class="project-link">View Project →</a>
+                </div>
+            </div>
+            
+            <div class="project-card" style="opacity: 0.6;">
+                <div class="project-header">
+                    <h2>Coming Soon</h2>
+                    <p>More Projects</p>
+                </div>
+                <div class="project-body">
+                    <p>More projects coming soon! Each project is maintained in its own repository and deployed here independently.</p>
+                    <span class="project-link" style="opacity: 0.5;">Coming Soon</span>
+                </div>
+            </div>
+        </div>
+        
+        <footer>
+            <p>&copy; 2026 Kamal Maharjan. All rights reserved.</p>
+            <p><a href="https://github.com/kamalmaharjan" style="color: white; text-decoration: none;">GitHub Profile</a></p>
+        </footer>
+    </div>
+</body>
+</html>
